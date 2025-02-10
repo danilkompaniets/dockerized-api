@@ -22,9 +22,9 @@ services:
       target: development
     environment:
       - PORT=3000
-      - MONGO_USER=root
-      - MONGO_PASSWORD=root
-      - SESSION_SECRET=secret
+      - MONGO_USER=${MONGO_USER}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
+      - SESSION_SECRET=${SESSION_SECRET}
 
     volumes:
       - type: bind
@@ -46,8 +46,8 @@ services:
     image: mongo
     restart: unless-stopped
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
     volumes:
       - type: volume
         source: mongo_data_dev
